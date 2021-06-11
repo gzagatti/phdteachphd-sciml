@@ -10,13 +10,13 @@ The slides are available in an interactive format as an [IJulia notebook](./docs
 
 To follow the course, make sure to install the latest stable version [`Julia`](https://julialang.org/downloads/). Then, clone this repository:
 
-```sh
+```
 > git clone git@github.com:gzagatti/phdteachphd-sciml.git
 ```
 
 After downloading the repository, activate the Julia environment and install all the dependencies:
 
-```sh
+```
 > cd phdteachphd-sciml/
 > julia
                _
