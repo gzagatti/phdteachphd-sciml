@@ -1,0 +1,6 @@
+Approaching science with AI: An introduction to scientific machine learning
+
+Dynamical systems are a common way of describing phenomena in science. From harmonic oscillators, infectious diseases, ecology to market dynamics, all of these phenomena can be described with sets of ordinary equations that detail how the different variables in the system change with time and affect one another. To develop good models that explain and extrapolate empirical data, scientists need lots of observation and good intuition, as well as a deep understanding of their field of expertise. Conversely, machine learning poses an alternative approach to research: data in, predictions out. This black-box approach eschews generalization, leaving little room for explanation and understanding.
+
+Recently, a new paradigm that blends scientific methods with machine learning called scientific machine learning has emerged. Using the fact that neural networks are universal function approximators, we can blend neural networks with ordinary differential equations to facilitate explainable model discovery from data. In particular, a new breed of neural network called NeuralODE can help us make sense of non-linear dynamics. This course will introduce scientific machine learning using the Julia programming language and its SciML environment.
+
