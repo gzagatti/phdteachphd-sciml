@@ -2,6 +2,8 @@
 
 **An introduction to scientific machine learning**
 
+> This course is currently under construction.
+
 Recently, a new paradigm that blends scientific methods with machine learning called scientific machine learning has emerged. This course introduces scientific machine learning using the Julia programming language and its SciML environment.
 
 For a detailed description of the course read the [outline](./docs/outline.pdf).
