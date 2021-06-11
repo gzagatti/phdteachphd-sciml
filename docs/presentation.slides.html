@@ -14417,6 +14417,12 @@ PhD candidate NUS NGS/IDS<br>
 </div></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Motivation">Motivation<a class="anchor-link" href="#Motivation">&#182;</a></h2><p><strong>Dynamical systems describe changes we observe</strong></p>
+
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="&quot;It-is-then-by-cause-that-we-define-time&quot;-(Poincar&#233;-1903)">"It is then by cause that we define time" (Poincar&#233; 1903)<a class="anchor-link" href="#&quot;It-is-then-by-cause-that-we-define-time&quot;-(Poincar&#233;-1903)">&#182;</a></h2><p>How do we learn about cause and effect if not by how we observe things evolving?</p>
 <p><strong>Dynamical systems</strong> are an evolution rule that defines a trajectory as a map (<a href="https://sinews.siam.org/Details-Page/differential-dynamical-systems-revised-edition-4">Meiss 2007</a>):</p>
 <p><br/></p>
@@ -14524,9 +14530,29 @@ $$
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Download and install Julia following the steps in the <a href="https://julialang.org/downloads/">official webpage</a> to ensure you have the latest version.</p>
-<p>Julia is been actively developed by the community, make sure you install the latest stable release.</p>
-<p>After</p>
+<p>To follow the course, make sure to install the latest stable version of <code>Julia</code> from its <a href="https://julialang.org/downloads/">official page</a>.</p>
+<p>Then, clone this repository:</p>
+
+<pre><code>&gt; git clone git@github.com:gzagatti/phdteachphd-sciml.git</code></pre>
+<p>After downloading the repository, activate the Julia environment and install all the dependencies:</p>
+
+<pre><code>&gt; cd phdteachphd-sciml/
+&gt; julia
+               _
+   _       _ _(_)_     |  Documentation: https://docs.julialang.org
+  (_)     | (_) (_)    |
+   _ _   _| |_  __ _   |  Type "?" for help, "]?" for Pkg help.
+  | | | | | | |/ _` |  |
+  | | |_| | | | (_| |  |  Version 1.6.1 (2021-04-23)
+ _/ |\__'_|_|_|\__'_|  |  Official https://julialang.org/ release
+|__/                   |
+
+julia&gt; ]
+(@v1.6) pkg&gt; activate .
+  Activating environment at `./phdteachphd-sciml/Project.toml`
+(@v1.6) pkg&gt; instantiate
+  Resolving package versions...
+  ...</code></pre>
 
 </div>
 </div></section></section>
