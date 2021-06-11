@@ -30,7 +30,10 @@ After downloading the repository, activate the Julia environment and install all
 
 julia> ]
 (@v1.6) pkg> activate .
+  Activating environment at `./phdteachphd-sciml/Project.toml`
 (@v1.6) pkg> instantiate
+  Resolving package versions...
+  ...
 ```
 
 
