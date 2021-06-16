@@ -1,6 +1,6 @@
 # PhD-teach-PhD: Approaching science with AI
 
-![slides](https://img.shields.io/website?down_color=red&label=slides&logo=github&up_color=brightgreen&url=https%3A%2F%2Fgzagatti.github.io%2Fphdteachphd-sciml%2F)
+[![slides](https://img.shields.io/website?down_color=red&label=slides&logo=github&up_color=brightgreen&url=https%3A%2F%2Fgzagatti.github.io%2Fphdteachphd-sciml)](https://gzagatti.github.io/phdteachphd-sciml)
 
 **An introduction to scientific machine learning**
 
