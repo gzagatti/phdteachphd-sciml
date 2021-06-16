@@ -14391,18 +14391,18 @@ div.jp-OutputPrompt {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="Phd-teach-PhD:-Approaching-science-with-AI">Phd-teach-PhD: Approaching science with AI<a class="anchor-link" href="#Phd-teach-PhD:-Approaching-science-with-AI">&#182;</a></h1><p><strong>An introduction to scientific machine learning</strong></p>
 <p>Guilherme Zagatti<br>
-PhD candidate NUS NGS/IDS<br>
+PhD candidate, NUS ISEP/IDS<br>
 <a href="mailto:gzagatti@u.nus.edu">gzagatti@u.nus.edu</a></p>
 
 </div>
 </div></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Outline">Outline<a class="anchor-link" href="#Outline">&#182;</a></h2><ol>
-<li><p><a href="#Motivation">Motivation</a></p>
+<h1 id="Outline">Outline<a class="anchor-link" href="#Outline">&#182;</a></h1><ol>
+<li><p>Motivation</p>
 <p>Dynamical systems describe changes we observe</p>
 </li>
-<li><p><a href="#Julia">Julia</a></p>
+<li><p>Julia</p>
 <p>Intro to the language and ecosystem</p>
 </li>
 <li><p>A formal introduction to ODEs and SciML</p>
@@ -14414,6 +14414,8 @@ PhD candidate NUS NGS/IDS<br>
 </li>
 <li><p>Exercises</p>
 </li>
+<li><p>References</p>
+</li>
 </ol>
 
 </div>
@@ -14423,7 +14425,7 @@ PhD candidate NUS NGS/IDS<br>
 <h1 id="Motivation">Motivation<a class="anchor-link" href="#Motivation">&#182;</a></h1><p><strong>Dynamical systems describe changes we observe</strong></p>
 
 </div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="&quot;It-is-then-by-cause-that-we-define-time&quot;-(Poincar&#233;-1903)">"It is then by cause that we define time" (Poincar&#233; 1903)<a class="anchor-link" href="#&quot;It-is-then-by-cause-that-we-define-time&quot;-(Poincar&#233;-1903)">&#182;</a></h2><p>How do we learn about cause and effect if not by how we observe things evolving?</p>
@@ -14435,13 +14437,14 @@ $$<p><br/></p>
 <p>As a mathematics discipline, the study of dynamical systems originates at the end of 19th century spearheaded by <a href="https://plato.stanford.edu/entries/poincare/">Henri Poincaré</a> who also developed an extensive theory of sciences.</p>
 
 </div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Physics:-coupled-oscillator">Physics: coupled oscillator<a class="anchor-link" href="#Physics:-coupled-oscillator">&#182;</a></h2><p>Describes the movement of an object with mass $m$ attached to a spring under force $F$.</p>
-<div style="column-count: 2; column-rule: 1px dotted #e0e0e0; display: flex;">
-<div style="display: flex; width: 300px;">
-<img src="./assets/mass-spring.png" style="display: block; margin:auto;"></img>
+<h2 id="Physics:-coupled-oscillator">Physics: coupled oscillator<a class="anchor-link" href="#Physics:-coupled-oscillator">&#182;</a></h2><p>Describes the movement of an object with <strong>mass $m$ attached to a spring under force $F$</strong>.</p>
+<p>The force follows <strong>Hooke's law</strong>, that is, it is proportional to the initial displacement.</p>
+<div style="display: flex;">
+<div style="flex: 0 0 250px; margin-right: 10px;">
+<img src="./assets/mass-spring.png" style="height: 250px;">
 </div>
 <div style="display: flex; align-items: center;">
 $$
@@ -14451,13 +14454,15 @@ $$
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Ecology:-Lotka-Volterra">Ecology: Lotka-Volterra<a class="anchor-link" href="#Ecology:-Lotka-Volterra">&#182;</a></h2><p>Describes the dynamics of two-competing species, the prey $x$ and predator $y$.</p>
-<div style="column-count: 2; column-gap: 5px; display: flex;">
-<div style="display: flex; width: 300px;">
-<img src="./assets/fox-rabbit.png" style="display: block; margin:auto;"></img>
+<h2 id="Ecology:-Lotka-Volterra">Ecology: Lotka-Volterra<a class="anchor-link" href="#Ecology:-Lotka-Volterra">&#182;</a></h2><p>Describes the <strong>dynamics of two-competing species</strong>, the prey $x$ and predator $y$. Predator and prey come in contact to one another according to the proportion of each specie in the environment.</p>
+<p>The prey is born with rate $\alpha$. The predator kills the prey with rate $\beta$.</p>
+<p>The predator needs to eat the prey to grows at rate $\delta$. The predator dies of natural cause at rate $\gamma$.</p>
+<div style="display: flex;">
+<div style="flex: 0 0 250px; margin-right: 10px;">
+<img src="./assets/fox-rabbit.png" style="height: 200px;">
 </div>
 <div style="display: flex; align-items: center;">
 $$
@@ -14468,14 +14473,14 @@ $$
 $$
 </div>
 </div>
-</div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Epidemiology:-SIR">Epidemiology: SIR<a class="anchor-link" href="#Epidemiology:-SIR">&#182;</a></h2><p>Susceptible-infected-recovered. Describes the evolution of an infectious disease which is transmitted with rate $\beta$ when a susceptible and an infected individual come into contact and disappears with rate $\gamma$.</p>
-<div style="column-count: 2; column-gap: 5px; display: flex;">
-<div style="display: flex; width: 300px;">
-<img src="./assets/sneeze.png" style="display: block; margin:auto;"></img>
+<h2 id="Epidemiology:-SIR">Epidemiology: SIR<a class="anchor-link" href="#Epidemiology:-SIR">&#182;</a></h2><p>Susceptible-infected-recovered: describes the <strong>evolution of an infectious disease</strong>.</p>
+<p>Susceptible and infected come in contact to one another according to the proportion of each type in the population. The disease is then transmitted with rate $\beta$. An infected person recovers with rate $\gamma$.</p>
+<div style="display: flex;">
+<div style="flex: 0 0 250px; margin-right: 10px;">
+<img src="./assets/sneeze.png" style="width: 250px">
 </div>
 <div style="display: flex; align-items: center;">
 $$
@@ -14487,14 +14492,14 @@ $$
 $$
 </div>
 </div>
-</div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Economics:-Solow-growth-model">Economics: Solow growth model<a class="anchor-link" href="#Economics:-Solow-growth-model">&#182;</a></h2><p>The production function $f(.)$ describes growth as a function of $k$. The rate of capital growth is constrained by the savings rate $s$ and the depreciation rate of capital $\delta$.</p>
-<div style="column-count: 2; column-gap: 5px; display: flex;">
-<div style="display: flex; width: 300px;">
-<img src="./assets/growth.png" style="display: block; margin:auto;"></img>
+<h2 id="Economics:-Solow-growth-model">Economics: Solow growth model<a class="anchor-link" href="#Economics:-Solow-growth-model">&#182;</a></h2><p>The production function $f(.)$ describes <strong>economic growth as a function of $k$</strong>.</p>
+<p>The rate of capital growth is constrained by the savings rate $s$ and the depreciation rate of capital $\delta$.</p>
+<div style="column-count: 2; column-gap: 10px; display: flex;">
+<div style="flex: 0 0 250px; margin-right: 10px;">
+<img src="./assets/growth.png" style="width: 250px;">
 </div>
 <div style="display: flex; align-items: center;">
 $$
@@ -14502,21 +14507,109 @@ $$
 $$
 </div>
 </div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="A-common-thread">A common thread<a class="anchor-link" href="#A-common-thread">&#182;</a></h2><p>All of the models presented describe how the <strong>variables of interest</strong> change as a <strong>function of time</strong> given a set of parameters.</p>
+<p>Let our parameters of interest be $ x = (x_1 \;  x_2 \;  \dots \;  x_n) \in \mathbb{R}^n$ and $f: \mathbb{R}^n ↦ \mathbb{R}^n $.</p>
+<p>We can express any <strong>generic model</strong> as following:</p>
+$$
+\dot{x} = \frac{d x}{dt} = f(x)
+$$<p>An key problem is whether any such models have a <strong>unique solution</strong>, that is:</p>
+<blockquote><p>If we are given an initial set of parameters and an initial condition can we determine the state of the system at any point in the future?</p>
+</blockquote>
+
 </div>
-</div></section></section><section><section>
+</div></section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="What-is-in-a-function?">What is in a function?<a class="anchor-link" href="#What-is-in-a-function?">&#182;</a></h2><p>Notice that we placed <strong>no restrictions on $f(.)$</strong>. So, it could really be anything.</p>
+<blockquote><p>In practical terms, can we develop a method that is able to list every possible way in which an element from a set $X$ can be mapped to a single element of a set $Y$?</p>
+</blockquote>
+<p>If set $X$ and $Y$ are small we can simply list all possible functions:</p>
+<div style="display: flex;">
+<div style="flex: 0 0 50%; align-items: center; margin-right: 10px;">
+$$
+\vdots \\
+f_i(x) = \begin{cases}
+D \text{, if } x = 1 \\
+C \text{, if } x \in \{2, 3\}
+\end{cases} \\
+\vdots
+$$
+</div>
+<div style="flex: 0 0 50%; align-items: center">
+<img src="./assets/injection.svg" style="width: 150px;">
+</div>
+</div><p>However, <strong>this does not scale</strong>. Most spaces are continuous and infinite.</p>
+
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Linear-models">Linear models<a class="anchor-link" href="#Linear-models">&#182;</a></h2><p>We can consider additional strategies.</p>
+<p>For instance, we can restrict ourselves only to <strong>linear functions</strong>, when variables change in proportion to the current (or previous) states.</p>
+$$
+\dot{x} = f(x) = A x
+$$<p>The simple harmonic oscillator presented in the beginning is a member of this class of functions.</p>
+<p>Again, this is <strong>very restricitve</strong>.</p>
+
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Classical-function-generators">Classical function generators<a class="anchor-link" href="#Classical-function-generators">&#182;</a></h2><p>There are other alternatives, we could have the class of <strong>polynomial functions</strong>.</p>
+<p>We know from <a href="https://en.wikipedia.org/wiki/Taylor%27s_theorem#Generalizations_of_Taylor&#39;s_theorem">Taylor's theorem</a> that a $k$-times differentiable function $f$ can be approximated with a Polynomial of $k$ degrees:</p>
+$$
+\dot{x} = f(x_0) + \sum_k \frac{d^k f}{d x^n} \frac{(x - x_0)^k}{k!}
+$$<p>The advantage of Taylor series is that we can <strong>describe $f(.)$ according to its derivatives</strong> --- that is, the way it changes in a small neighborhood.</p>
+<p>When $k = 1$, we can approximate the function with a linear function.</p>
+
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Cyclical-decompositions">Cyclical decompositions<a class="anchor-link" href="#Cyclical-decompositions">&#182;</a></h2><p>Alternatively, we can generate any <a href="https://en.wikipedia.org/wiki/Square-integrable_function">square-integrable functions</a> --- that is, functions with a finite norm -- using the <a href="https://en.wikipedia.org/wiki/Fourier_series">Fourier series</a></p>
+$$
+\dot{x} = \sum_{n \in \mathbb{Z}} \langle f, e_n \rangle \, e_n(x)
+$$<p>where $\langle . \, , \, . \rangle$ is the inner product of two functions and $e_n(x) = e^{inx}$.</p>
+<p>The Fourier series allow us to describe <strong>changes in terms of cycles</strong>.</p>
+<p>The lower the $n$, the lower the frequency of the cycle.</p>
+
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Finding-laws-from-data">Finding laws from data<a class="anchor-link" href="#Finding-laws-from-data">&#182;</a></h2><p>Ok, so now that we have at least three general methods for generating arbitrary functions.</p>
+<p><strong>It should be easy to discover laws from data</strong>, a simple linear regression will help us to find the parameters that best fit the data:</p>
+$$
+\hat{\alpha} = 
+$$
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="From-generic-functions-to-black-boxes">From generic functions to black boxes<a class="anchor-link" href="#From-generic-functions-to-black-boxes">&#182;</a></h2>
+</div>
+</div></section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Describing-nature-with-models">Describing nature with models<a class="anchor-link" href="#Describing-nature-with-models">&#182;</a></h2><p><p>"<em>It is not sufficient for each elementary phenomenon to obey simple laws, all those to be combined must obey the same law as well.</em>"<br/>Poincaré 1902</p>
 <p>A lot ingenuity and observation is required to develop models that are both <strong>consistent with reality and existing theory</strong>.</p>
 <p>Scientific machine learning is a <strong>set of tools for automated model discovery</strong> to support the development of models from data.</p>
-<div style="column-count: 2; column-gap: 5px; display: flex;">
-<div style="display: flex; width: 300px;">
-<img src="./assets/khun.png" style="display: block; margin:auto;"></img>
+<div style="display: flex;">
+<div style="flex: 0 0 250px;">
+<img src="./assets/khun.png" style="height: 150px;">
 </div>
 <div style="display: flex; align-items: center;">
 <p>According to Thomas Khun, science is a combination of <b>marginal revolutions and paradigm shifts</b>.</p>
 </div>
 </div>
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="What-about-stochastic-models?">What about stochastic models?<a class="anchor-link" href="#What-about-stochastic-models?">&#182;</a></h2>
 </div>
 </div></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
@@ -14524,7 +14617,7 @@ $$
 <h1 id="Julia">Julia<a class="anchor-link" href="#Julia">&#182;</a></h1><p><strong>Into to the language and ecosystem</strong></p>
 
 </div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="The--programming-language">The <img src="./assets/julia-logo.svg" style="display: inline; vertical-align: text-top; width: 36pt; " /> programming language<a class="anchor-link" href="#The--programming-language">&#182;</a></h2><p><strong>Fast</strong> designed for high-performance, JIT compiled code.</p>
@@ -14536,7 +14629,7 @@ $$
 <p>Visit <a href="https://julialang.org">Julia's</a> website to get started.</p>
 
 </div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Installation">Installation<a class="anchor-link" href="#Installation">&#182;</a></h2><p>To follow the course, make sure to install the latest stable version of <code>Julia</code> from its <a href="https://julialang.org/downloads/">official page</a>.</p>
@@ -14564,7 +14657,7 @@ julia&gt; ]
   ...</code></pre>
 
 </div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Interacting-with-Julia">Interacting with Julia<a class="anchor-link" href="#Interacting-with-Julia">&#182;</a></h2><div style="column-count: 2; column-gap: 5px; display: flex;">
@@ -14581,7 +14674,13 @@ julia&gt; ]
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div></section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Ecosystem">Ecosystem<a class="anchor-link" href="#Ecosystem">&#182;</a></h2><p>Julia comes with a built-in pac</p>
+
+</div>
+</div></section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Ecosystem">Ecosystem<a class="anchor-link" href="#Ecosystem">&#182;</a></h2><p>Julia comes with a built-in pac</p>
@@ -14590,9 +14689,45 @@ julia&gt; ]
 </div></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="References">References<a class="anchor-link" href="#References">&#182;</a></h2><p>Meiss 2007</p>
+<h1 id="ODEs-and-SciML">ODEs and SciML<a class="anchor-link" href="#ODEs-and-SciML">&#182;</a></h1><p><strong>The initial value problem, classical approaches for fitting data to ODEs</strong></p>
 
 </div>
+</div></section></section><section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="NeuralODE">NeuralODE<a class="anchor-link" href="#NeuralODE">&#182;</a></h1><p><strong>The initial value problem reviewed, fitting data to ODEs with machine learning</strong></p>
+
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="Exercises">Exercises<a class="anchor-link" href="#Exercises">&#182;</a></h1>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="References">References<a class="anchor-link" href="#References">&#182;</a></h1>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Meiss 2007</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-julia"><pre><span></span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
 </div></section></section>
 </div>
 </div>
