@@ -12,6 +12,7 @@
 <!-- General and theme style sheets -->
 <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.0.2/dist/reveal.css">
 <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.0.2/dist/theme/simple.css" id="theme">
+<!-- <link rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets@11.0.1/styles/default.min.css"> -->
 
 <!-- If the query includes 'print-pdf', include the PDF print sheet -->
 <script>
@@ -14272,18 +14273,20 @@ a.anchor-link {
 <style type="text/css">
 /* Overrides of notebook CSS for static HTML export */
 .reveal {
-  font-size: 160%;
+  font-size: 150%;
 }
 .reveal pre {
   width: inherit;
-  padding: 0.4em;
-  margin: 0px;
+  /* padding: 0.4em; */
+  margin: 1em 0em;
   font-family: monospace, sans-serif;
-  font-size: 80%;
+  font-size: 70%;
   box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
 }
 .reveal pre code {
   padding: 0px;
+  max-height: 200px;
+  overflow: auto;
 }
 .reveal section img {
   border: 0px solid black;
@@ -14295,6 +14298,8 @@ a.anchor-link {
   font-size: 2em;
 }
 .reveal .slides {
+  /* add border for development purposes */
+  border: 5px solid black;
   text-align: left;
 }
 .reveal.fade {
@@ -14303,20 +14308,19 @@ a.anchor-link {
 .reveal .progress {
   position: static;
 }
-
+.jp-RenderedHTMLCommon p {
+  margin-bottom: 0.5em;
+}
 div.jp-InputArea-editor {
   padding: 0.06em;
 }
-
 div.code_cell {
   background-color: transparent;
 }
-
 div.output_area pre {
   font-family: monospace, sans-serif;
-  font-size: 80%;
+  font-size: 70%;
 }
-
 div.jp-OutputPrompt {
   /* 5px right shift to account for margin in parent container */
   margin: 5px 5px 0 0;
@@ -14395,19 +14399,18 @@ PhD candidate NUS NGS/IDS<br>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Outline">Outline<a class="anchor-link" href="#Outline">&#182;</a></h2><ol>
-<li><p>Motivation: Dynamical systems describe changes we observe</p>
+<li><p><a href="#Motivation">Motivation</a></p>
+<p>Dynamical systems describe changes we observe</p>
 </li>
-<li><p>Julia</p>
+<li><p><a href="#Julia">Julia</a></p>
 <p>Intro to the language and ecosystem</p>
 </li>
 <li><p>A formal introduction to ODEs and SciML</p>
 <p>The initial value problem</p>
-<p><code>DifferentialEquations.jl</code></p>
 <p>Fitting data to ODEs, classical approaches</p>
 </li>
 <li><p>NeuralODE</p>
 <p>The initial value problem reviewed</p>
-<p><code>Flux.jl</code></p>
 </li>
 <li><p>Exercises</p>
 </li>
@@ -14417,14 +14420,14 @@ PhD candidate NUS NGS/IDS<br>
 </div></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Motivation">Motivation<a class="anchor-link" href="#Motivation">&#182;</a></h2><p><strong>Dynamical systems describe changes we observe</strong></p>
+<h1 id="Motivation">Motivation<a class="anchor-link" href="#Motivation">&#182;</a></h1><p><strong>Dynamical systems describe changes we observe</strong></p>
 
 </div>
 </div></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="&quot;It-is-then-by-cause-that-we-define-time&quot;-(Poincar&#233;-1903)">"It is then by cause that we define time" (Poincar&#233; 1903)<a class="anchor-link" href="#&quot;It-is-then-by-cause-that-we-define-time&quot;-(Poincar&#233;-1903)">&#182;</a></h2><p>How do we learn about cause and effect if not by how we observe things evolving?</p>
-<p><strong>Dynamical systems</strong> are an evolution rule that defines a trajectory as a map (<a href="https://sinews.siam.org/Details-Page/differential-dynamical-systems-revised-edition-4">Meiss 2007</a>):</p>
+<p><strong>Dynamical systems</strong> are an evolution rule that defines a trajectory as a map (Meiss 2007):</p>
 <p><br/></p>
 $$
     \text{time} ↦ \text{set of states}
@@ -14435,7 +14438,7 @@ $$<p><br/></p>
 </div></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Physics:-coupled-oscillator">Physics: coupled oscillator<a class="anchor-link" href="#Physics:-coupled-oscillator">&#182;</a></h3><p>Describes the movement of an object with mass $m$ attached to a spring under force $F$.</p>
+<h2 id="Physics:-coupled-oscillator">Physics: coupled oscillator<a class="anchor-link" href="#Physics:-coupled-oscillator">&#182;</a></h2><p>Describes the movement of an object with mass $m$ attached to a spring under force $F$.</p>
 <div style="column-count: 2; column-rule: 1px dotted #e0e0e0; display: flex;">
 <div style="display: flex; width: 300px;">
 <img src="../assets/mass-spring.png" style="display: block; margin:auto;"></img>
@@ -14451,7 +14454,7 @@ $$
 </div></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Ecology:-Lotka-Volterra">Ecology: Lotka-Volterra<a class="anchor-link" href="#Ecology:-Lotka-Volterra">&#182;</a></h3><p>Describes the dynamics of two-competing species, the prey $x$ and predator $y$.</p>
+<h2 id="Ecology:-Lotka-Volterra">Ecology: Lotka-Volterra<a class="anchor-link" href="#Ecology:-Lotka-Volterra">&#182;</a></h2><p>Describes the dynamics of two-competing species, the prey $x$ and predator $y$.</p>
 <div style="column-count: 2; column-gap: 5px; display: flex;">
 <div style="display: flex; width: 300px;">
 <img src="../assets/fox-rabbit.png" style="display: block; margin:auto;"></img>
@@ -14469,7 +14472,7 @@ $$
 </div></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Epidemiology:-SIR">Epidemiology: SIR<a class="anchor-link" href="#Epidemiology:-SIR">&#182;</a></h3><p>Susceptible-infected-recovered. Describes the evolution of an infectious disease which is transmitted with rate $\beta$ when a susceptible and an infected individual come into contact and disappears with rate $\gamma$.</p>
+<h2 id="Epidemiology:-SIR">Epidemiology: SIR<a class="anchor-link" href="#Epidemiology:-SIR">&#182;</a></h2><p>Susceptible-infected-recovered. Describes the evolution of an infectious disease which is transmitted with rate $\beta$ when a susceptible and an infected individual come into contact and disappears with rate $\gamma$.</p>
 <div style="column-count: 2; column-gap: 5px; display: flex;">
 <div style="display: flex; width: 300px;">
 <img src="../assets/sneeze.png" style="display: block; margin:auto;"></img>
@@ -14488,7 +14491,7 @@ $$
 </div></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Economics:-Solow-growth-model">Economics: Solow growth model<a class="anchor-link" href="#Economics:-Solow-growth-model">&#182;</a></h3><p>The production function $f(.)$ describes growth as a function of $k$. The rate of capital growth is constrained by the savings rate $s$ and the depreciation rate of capital $\delta$.</p>
+<h2 id="Economics:-Solow-growth-model">Economics: Solow growth model<a class="anchor-link" href="#Economics:-Solow-growth-model">&#182;</a></h2><p>The production function $f(.)$ describes growth as a function of $k$. The rate of capital growth is constrained by the savings rate $s$ and the depreciation rate of capital $\delta$.</p>
 <div style="column-count: 2; column-gap: 5px; display: flex;">
 <div style="display: flex; width: 300px;">
 <img src="../assets/growth.png" style="display: block; margin:auto;"></img>
@@ -14503,11 +14506,22 @@ $$
 </div></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Describing-nature-with-models">Describing nature with models<a class="anchor-link" href="#Describing-nature-with-models">&#182;</a></h3><p>A lot ingenuity and observation is required to develop models that are both <strong>consistent with reality and existing theory</strong>.</p>
-<p>Science is a combination of <strong>marginal revolutions and paradigm shifts</strong>.</p>
+<h2 id="Describing-nature-with-models">Describing nature with models<a class="anchor-link" href="#Describing-nature-with-models">&#182;</a></h2><p><p>"<em>It is not sufficient for each elementary phenomenon to obey simple laws, all those to be combined must obey the same law as well.</em>"<br/>Poincaré 1902</p>
+<p>A lot ingenuity and observation is required to develop models that are both <strong>consistent with reality and existing theory</strong>.</p>
 <p>Scientific machine learning is a <strong>set of tools for automated model discovery</strong> to support the development of models from data.</p>
-<p><img src="../assets/khun.png" style="display: block; margin:auto; width: 300px;"></img></p>
-<p>"<em>It is not sufficient for each elementary phenomenon to obey simple laws, all those to be combined must obey the same law as well.</em> "<br/>Poincaré 1902</p>
+<div style="column-count: 2; column-gap: 5px; display: flex;">
+<div style="display: flex; width: 300px;">
+<img src="../assets/khun.png" style="display: block; margin:auto;"></img>
+</div>
+<div style="display: flex; align-items: center;">
+<p>According to Thomas Khun, science is a combination of <b>marginal revolutions and paradigm shifts</b>.</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="Julia">Julia<a class="anchor-link" href="#Julia">&#182;</a></h1><p><strong>Into to the language and ecosystem</strong></p>
 
 </div>
 </div></section></section><section><section>
@@ -14525,16 +14539,11 @@ $$
 </div></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Installation">Installation<a class="anchor-link" href="#Installation">&#182;</a></h2>
-</div>
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>To follow the course, make sure to install the latest stable version of <code>Julia</code> from its <a href="https://julialang.org/downloads/">official page</a>.</p>
+<h2 id="Installation">Installation<a class="anchor-link" href="#Installation">&#182;</a></h2><p>To follow the course, make sure to install the latest stable version of <code>Julia</code> from its <a href="https://julialang.org/downloads/">official page</a>.</p>
 <p>Then, clone this repository:</p>
 
 <pre><code>&gt; git clone git@github.com:gzagatti/phdteachphd-sciml.git</code></pre>
-<p>After downloading the repository, activate the Julia environment and install all the dependencies:</p>
+<p>After downloading the repository, activate its Julia environment and install its dependencies:</p>
 
 <pre><code>&gt; cd phdteachphd-sciml/
 &gt; julia
@@ -14555,6 +14564,35 @@ julia&gt; ]
   ...</code></pre>
 
 </div>
+</div></section></section><section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Interacting-with-Julia">Interacting with Julia<a class="anchor-link" href="#Interacting-with-Julia">&#182;</a></h2><div style="column-count: 2; column-gap: 5px; display: flex;">
+<div style="display: flex; align-items: center;">
+<ol>
+<li>as a scripting language <pre><code>> julia my-code.jl</code></pre></li>
+<li>from the terminal using the built-in REPL <pre><code>julia> 1 + 1</code></pre></li>
+<li>from a Jupyter notebook using <code>IJulia</code> <pre><code>julia> using IJulia; jupyterlab();</code></pre></li>
+<li>from <a href="https://www.julia-vscode.org/">Julia for VSCode</a> a powerful IDE for interactive computing similar to Rstudio</li>
+</ol>
+</div>
+<div style="display: flex; width: 600px;">
+<img src="../assets/vscode.png" style="display: block; margin:auto;">
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Ecosystem">Ecosystem<a class="anchor-link" href="#Ecosystem">&#182;</a></h2><p>Julia comes with a built-in pac</p>
+
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="References">References<a class="anchor-link" href="#References">&#182;</a></h2><p>Meiss 2007</p>
+
+</div>
 </div></section></section>
 </div>
 </div>
@@ -14569,16 +14607,19 @@ require(
       waitSeconds: 15
     },
     [
-      "https://unpkg.com/reveal.js@4.0.2/dist/reveal.js"
+      "https://unpkg.com/reveal.js@4.0.2/dist/reveal.js",
+      // "https://unpkg.com/reveal.js@4.0.2/plugin/highlight/highlight.js"
     ],
-
-    function(Reveal){
+    function(Reveal, RevealHighlight){
         // Full list of configuration options available here: https://github.com/hakimel/reveal.js#configuration
         Reveal.initialize({
             controls: true,
             progress: true,
             history: true,
             transition: "slide",
+            width: 960,
+            height: 540,
+        //    plugins: [ RevealHighlight ]
         });
 
         var update = function(event){
