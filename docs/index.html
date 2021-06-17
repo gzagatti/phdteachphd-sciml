@@ -14495,9 +14495,9 @@ $$
 </div></section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Economics:-Solow-growth-model">Economics: Solow growth model<a class="anchor-link" href="#Economics:-Solow-growth-model">&#182;</a></h2><p>The production function $f(.)$ describes <strong>economic growth as a function of $k$</strong>.</p>
+<h2 id="Economics:-Solow-growth-model">Economics: Solow growth model<a class="anchor-link" href="#Economics:-Solow-growth-model">&#182;</a></h2><p>The production function $f(\cdot)$ describes <strong>economic growth as a function of $k$</strong>.</p>
 <p>The rate of capital growth is constrained by the savings rate $s$ and the depreciation rate of capital $\delta$.</p>
-<div style="column-count: 2; column-gap: 10px; display: flex;">
+<div style="display: flex;">
 <div style="flex: 0 0 250px; margin-right: 10px;">
 <img src="./assets/growth.png" style="width: 250px;">
 </div>
@@ -14511,11 +14511,11 @@ $$
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="A-common-thread">A common thread<a class="anchor-link" href="#A-common-thread">&#182;</a></h2><p>All of the models presented describe how the <strong>variables of interest</strong> change as a <strong>function of time</strong> given a set of parameters.</p>
-<p>Let our parameters of interest be $ x = (x_1 \;  x_2 \;  \dots \;  x_n) \in \mathbb{R}^n$ and $f: \mathbb{R}^n ↦ \mathbb{R}^n $.</p>
+<p>Let our variables of interest be $ x = (x_1 \;  x_2 \;  \dots \;  x_N) \in \mathbb{R}^N$ and the law of motion $f: \mathbb{R}^N ↦ \mathbb{R}^N $.</p>
 <p>We can express any <strong>generic model</strong> as following:</p>
 $$
 \dot{x} = \frac{d x}{dt} = f(x)
-$$<p>An key problem is whether any such models have a <strong>unique solution</strong>, that is:</p>
+$$<p>A key problem is whether any such models have a <strong>unique solution</strong>, that is:</p>
 <blockquote><p>If we are given an initial set of parameters and an initial condition can we determine the state of the system at any point in the future?</p>
 </blockquote>
 
@@ -14523,15 +14523,15 @@ $$<p>An key problem is whether any such models have a <strong>unique solution</s
 </div></section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="What-is-in-a-function?">What is in a function?<a class="anchor-link" href="#What-is-in-a-function?">&#182;</a></h2><p>Notice that we placed <strong>no restrictions on $f(.)$</strong>. So, it could really be anything.</p>
+<h2 id="What-is-in-a-function?">What is in a function?<a class="anchor-link" href="#What-is-in-a-function?">&#182;</a></h2><p>Notice that we placed <strong>no restrictions on $f(\cdot)$</strong>. So, it could really be anything.</p>
 <blockquote><p>In practical terms, can we develop a method that is able to list every possible way in which an element from a set $X$ can be mapped to a single element of a set $Y$?</p>
 </blockquote>
-<p>If set $X$ and $Y$ are small we can simply list all possible functions:</p>
+<p>If set $X$ and $Y$ are small we can simply list all possible functions $K$:</p>
 <div style="display: flex;">
 <div style="flex: 0 0 50%; align-items: center; margin-right: 10px;">
 $$
 \vdots \\
-f_i(x) = \begin{cases}
+f_k(x) = \begin{cases}
 D \text{, if } x = 1 \\
 C \text{, if } x \in \{2, 3\}
 \end{cases} \\
@@ -14561,35 +14561,111 @@ $$<p>The simple harmonic oscillator presented in the beginning is a member of th
 <h2 id="Classical-function-generators">Classical function generators<a class="anchor-link" href="#Classical-function-generators">&#182;</a></h2><p>There are other alternatives, we could have the class of <strong>polynomial functions</strong>.</p>
 <p>We know from <a href="https://en.wikipedia.org/wiki/Taylor%27s_theorem#Generalizations_of_Taylor&#39;s_theorem">Taylor's theorem</a> that a $k$-times differentiable function $f$ can be approximated with a Polynomial of $k$ degrees:</p>
 $$
-\dot{x} = f(x_0) + \sum_k \frac{d^k f}{d x^n} \frac{(x - x_0)^k}{k!}
-$$<p>The advantage of Taylor series is that we can <strong>describe $f(.)$ according to its derivatives</strong> --- that is, the way it changes in a small neighborhood.</p>
+\dot{x} = f(x_0) + \sum_{k \in \mathbb{N}_+} \frac{d^k f}{dx^k}(x_0) \frac{(x - x_0)^k}{k!} = \sum_{k \in \mathbb{N}} \xi_k \theta_k(x)
+$$<p>where $\theta_k(x) = x^k$.</p>
+<p>The advantage of Taylor series is that we can <strong>describe $f(.)$ according to its derivatives</strong> --- that is, the way it changes in a small neighborhood.</p>
 <p>When $k = 1$, we can approximate the function with a linear function.</p>
 
 </div>
 </div></section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Cyclical-decompositions">Cyclical decompositions<a class="anchor-link" href="#Cyclical-decompositions">&#182;</a></h2><p>Alternatively, we can generate any <a href="https://en.wikipedia.org/wiki/Square-integrable_function">square-integrable functions</a> --- that is, functions with a finite norm -- using the <a href="https://en.wikipedia.org/wiki/Fourier_series">Fourier series</a></p>
+<h2 id="Cyclical-decompositions">Cyclical decompositions<a class="anchor-link" href="#Cyclical-decompositions">&#182;</a></h2><p>Alternatively, we can generate any <a href="https://en.wikipedia.org/wiki/Square-integrable_function">square-integrable functions</a> --- that is, functions with a finite norm --- using the <a href="https://en.wikipedia.org/wiki/Fourier_series">Fourier series</a>:</p>
 $$
-\dot{x} = \sum_{n \in \mathbb{Z}} \langle f, e_n \rangle \, e_n(x)
-$$<p>where $\langle . \, , \, . \rangle$ is the inner product of two functions and $e_n(x) = e^{inx}$.</p>
+\dot{x} = \sum_{k \in \mathbb{Z}} \langle f, \theta_k \rangle \, \theta_k(x) = \sum_{k \in \mathbb{Z}} \xi_k \theta_k (x)
+$$<p>where $\langle \cdot \, , \, \cdot \rangle$ is the inner product of two functions and $\theta_k(x) = e^{ikx}$.</p>
 <p>The Fourier series allow us to describe <strong>changes in terms of cycles</strong>.</p>
-<p>The lower the $n$, the lower the frequency of the cycle.</p>
+<p>The lower the $k$, the lower the frequency of the cycle.</p>
 
 </div>
 </div></section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Finding-laws-from-data">Finding laws from data<a class="anchor-link" href="#Finding-laws-from-data">&#182;</a></h2><p>Ok, so now that we have at least three general methods for generating arbitrary functions.</p>
-<p><strong>It should be easy to discover laws from data</strong>, a simple linear regression will help us to find the parameters that best fit the data:</p>
+<h2 id="Basis-functions">Basis functions<a class="anchor-link" href="#Basis-functions">&#182;</a></h2><p>Ok, so now that we have at least three general methods for generating arbitrary functions.</p>
+<p><strong>It should be easy to discover laws from data</strong>.</p>
+<p>Call the dictionary of <strong>basis functions</strong> $\Theta(\cdot)$ and the <strong>coefficient matrix</strong> $\Xi$:</p>
 $$
-\hat{\alpha} = 
+\Theta (\cdot) = \begin{pmatrix}
+\vdots &amp; \vdots &amp; \vdots &amp; \vdots \\ 
+1 &amp; \theta_1(\cdot) &amp; \dots &amp; \theta_K \\
+\vdots &amp; \vdots &amp; \vdots &amp; \vdots
+\end{pmatrix}
+\,\text{,}\quad
+\Xi (\cdot) = \begin{pmatrix}
+\vdots &amp; \vdots &amp; \vdots &amp; \vdots \\ 
+\xi_0 &amp; \xi_1(\cdot) &amp; \dots &amp; \xi_K \\
+\vdots &amp; \vdots &amp; \vdots &amp; \vdots
+\end{pmatrix}
+$$<p>The number of basis function $K$ could be though as proportional to the maximum dimension $D$ of the basis functions, such that $K = D^N$</p>
+<p>The dynamical problem can thus be <strong>reformulated</strong> as:</p>
+$$\dot{X} = \Theta(X) \, \Xi
 $$
 </div>
 </div></section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="From-generic-functions-to-black-boxes">From generic functions to black boxes<a class="anchor-link" href="#From-generic-functions-to-black-boxes">&#182;</a></h2>
+<h2 id="Sparse-Identification-of-Nonlinear-Dynamics-(SINDy)">Sparse Identification of Nonlinear Dynamics (SINDy)<a class="anchor-link" href="#Sparse-Identification-of-Nonlinear-Dynamics-(SINDy)">&#182;</a></h2><p>A linear regression can help us to find the parameters that best fit the data. Add some regularization parameters to optimize sparsity:</p>
+$$
+\hat{\Xi} = argmin_{\Xi} \, || \dot{X} - \Theta(X) \, \Xi ||_2 + \lambda || \Xi ||_1
+$$<p>In <strong>theory</strong>, if $N &gt;&gt; K$, our system is identifiable.</p>
+<p>In <strong>practice</strong>, there are number of problems:</p>
+<ol>
+<li><p>Numerical errors in the computation of $\dot{X}$</p>
+</li>
+<li><p>The number of states $N$ might be prohibitively large</p>
+</li>
+<li><p>Curse of dimensionality: number of basis functions grows arbitrarily large as $D^N$</p>
+</li>
+</ol>
+<p>See <strong>Brunton (2016)</strong> for more details.</p>
+
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="From-generic-functions-to-black-boxes">From generic functions to black boxes<a class="anchor-link" href="#From-generic-functions-to-black-boxes">&#182;</a></h2><p>Besides dictionary methods, are there other ways?</p>
+<p>This is where <strong>neural networks (NN)</strong> enter the picture in the field of ODEs --- arguments are borrowed from <a href="https://mitmath.github.io/18337/lecture3/sciml.html">Chris Rackauckas</a>:</p>
+<ol>
+<li><p>the <strong>Universal Approximation Theorem (UAT)</strong> states that NN can approximate most well-behaved functions with any degree of precision which is controlled by the depth of the network (see Kratsios 2021);</p>
+</li>
+<li><p><strong>NN overcome the curse of dimensionality</strong>: the approximation of a function of dimension $D$ only needs a polynomial number of parameters $D^C$ rather than $D^N$ where $C$ is a constant (see Grohs 2019);</p>
+</li>
+<li><p>NN allows the <strong>enforcement of many arbitrary constraints</strong> via activation functions;</p>
+</li>
+<li><p><strong>NN are isotropic</strong>, they are naturally non-aligned to a basis;</p>
+</li>
+<li><p>local optimization of NN are <strong>more likely to reach global minimum</strong> (see Lacotte 2020)</p>
+</li>
+</ol>
+
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Why-don't-we-just-approximate-x(t)-with-NN?">Why don't we just approximate x(t) with NN?<a class="anchor-link" href="#Why-don't-we-just-approximate-x(t)-with-NN?">&#182;</a></h2><p>At the end of the day, NN are universal approximators and most of the arguments should apply when approximating:</p>
+$$
+x = x(t; x_0) \approx NN(t; x_0)
+$$<p>Most ODE problems do not have <strong>analytical solution</strong> and <strong>are naturally expressed in terms of rates of change</strong>.</p>
+<p>We build from previous knowledge, NN are only used to describe the <strong>unknown dynamics of our model</strong></p>
+<p>"<em>...the well-known adage "a picture is worth a thousand words" might well be "a model is worth a thousand datasets"</em>"<br/>
+Rackauckas 2020</p>
+
+</div>
+</div></section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="What-about-stochastic-models?">What about stochastic models?<a class="anchor-link" href="#What-about-stochastic-models?">&#182;</a></h2><div style="display: flex; align-items: center;">
+<div style="flex: 0 0 250px; align-items: center; margin-right: 10px; ">
+<img src="./assets/coin-flip.png">
+</div>
+<div>
+<p>Many scientific problems are expressed in terms of <b>random events</b>.
+<p>The <a src="https://www.youtube.com/watch?v=AYnJv68T3MM">flip of a coin</a> can be modelled as a complex dynamical system or as a simple Bernouilli distribution.
+<p>Although there are distinct basins of attraction --- more on that later ---, <b>sensitivity to and uncertainty about initial conditions</b> means that the motion can be described as a random process in practice (Diaconis 2007, Strzałko 2008).
+<p>However, in <b>complex scenarios</b> the description of attractors and the distribution of initial states is not easy to observable.
+<p><b>ODE systems</b> provide us with tools to describe and characterize basins of attraction and the attractors themselves.
+</div>
+</div>
 </div>
 </div></section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
@@ -14602,14 +14678,9 @@ $$
 <img src="./assets/khun.png" style="height: 150px;">
 </div>
 <div style="display: flex; align-items: center;">
-<p>According to Thomas Khun, science is a combination of <b>marginal revolutions and paradigm shifts</b>.</p>
+<p>According to Thomas Khun, science is a combination of <b>marginal revolutions and paradigm shifts</b>.
 </div>
 </div>
-</div>
-</div></section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="What-about-stochastic-models?">What about stochastic models?<a class="anchor-link" href="#What-about-stochastic-models?">&#182;</a></h2>
 </div>
 </div></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
@@ -14711,23 +14782,9 @@ julia&gt; ]
 </div></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Meiss 2007</p>
+<p>John Doe</p>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div></section></section>
 </div>
 </div>
