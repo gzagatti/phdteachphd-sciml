@@ -9,11 +9,11 @@
   font-family: monospace, sans-serif;
   font-size: 70%;
   box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+  max-height: 210px;
+  overflow: auto;
 }
 .reveal pre code {
   padding: 0px;
-  max-height: 200px;
-  overflow: auto;
 }
 .reveal section img {
   border: 0px solid black;
