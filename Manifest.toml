@@ -554,9 +554,11 @@ version = "0.57.3+0"
 
 [[GalacticOptim]]
 deps = ["ArrayInterface", "ConsoleProgressMonitor", "DiffResults", "DocStringExtensions", "Logging", "LoggingExtras", "Printf", "ProgressLogging", "Reexport", "Requires", "SciMLBase", "TerminalLoggers"]
-git-tree-sha1 = "2aba9fce3ae348f622358d8c475062d36733738c"
+git-tree-sha1 = "46433fc7992e7761796e38484095b7a7c74e113b"
+repo-rev = "master"
+repo-url = "https://github.com/SciML/GalacticOptim.jl.git"
 uuid = "a75be94c-b780-496d-a8a9-0878b188d577"
-version = "2.0.0"
+version = "2.0.1"
 
 [[GeometryBasics]]
 deps = ["EarCut_jll", "IterTools", "LinearAlgebra", "StaticArrays", "StructArrays", "Tables"]
