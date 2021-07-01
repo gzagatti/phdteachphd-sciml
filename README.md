@@ -10,9 +10,9 @@ Recently, a new paradigm that blends scientific methods with machine learning ca
 
 For a detailed description of the course read the [outline](./docs/outline.pdf).
 
-The slides are available in an interactive format as an [IJulia notebook](./docs/presentation.ipynb). The slides are also available in [html](./docs/presentation.slides.html) and in [pdf](./docs/presentation.pdf).
+The slides are available in an interactive format as an [IJulia notebook](./docs/presentation.ipynb). The slides are also available in [html](./docs/presentation.slides.html).
 
-To follow the course, make sure to install the latest stable version [`Julia`](https://julialang.org/downloads/). 
+To follow the course, make sure to install the latest stable version of [`Julia`](https://julialang.org/downloads/). 
 
 Then, clone this repository:
 
