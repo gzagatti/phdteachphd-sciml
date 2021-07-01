@@ -55,6 +55,15 @@ div.jp-OutputPrompt {
 
 /* Reveal navigation controls */
 
+.reveal .slide-number {
+  /* background: #181896; */
+  bottom: 1px;
+  right: 1px;
+}
+.reveal .controls {
+  color: #999999;
+  border-left-color: red;
+}
 .reveal .controls .navigate-left,
 .reveal .controls .navigate-left.enabled {
   border-right-color: #727272;
