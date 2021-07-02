@@ -14527,7 +14527,7 @@ $$
 <span class="n">p</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">];</span>
 <span class="n">prob</span> <span class="o">=</span> <span class="n">ODEProblem</span><span class="p">(</span><span class="n">ho!</span><span class="p">,</span> <span class="n">u0</span><span class="p">,</span> <span class="n">tspan</span><span class="p">,</span> <span class="n">p</span><span class="p">);</span>
 <span class="n">sol</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">prob</span><span class="p">);</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">sol</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;position&quot;</span> <span class="s">&quot;velocity&quot;</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="n">legend</span><span class="o">=</span><span class="ss">:outertopright</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">sol</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;position&quot;</span> <span class="s">&quot;velocity&quot;</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="n">legend</span><span class="o">=:</span><span class="n">outertopright</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14898,16 +14898,16 @@ $$
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">lv!</span><span class="p">(</span><span class="n">du</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
-    <span class="n">α</span><span class="p">,</span> <span class="n">β</span><span class="p">,</span> <span class="n">δ</span><span class="p">,</span> <span class="n">γ</span> <span class="o">=</span> <span class="n">p</span>
+    <span class="n">α</span><span class="p">,</span> <span class="n">β</span><span class="p">,</span> <span class="n">δ</span><span class="p">,</span> <span class="nb">γ</span> <span class="o">=</span> <span class="n">p</span>
     <span class="n">du</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">α</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>      <span class="o">-</span> <span class="n">β</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-    <span class="n">du</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">δ</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">γ</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">du</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">δ</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="nb">γ</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
 <span class="k">end</span><span class="p">;</span>
 <span class="n">u0</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">];</span>
 <span class="n">tspan</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">100.</span><span class="p">);</span>
 <span class="n">p</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">];</span>
 <span class="n">prob</span> <span class="o">=</span> <span class="n">ODEProblem</span><span class="p">(</span><span class="n">lv!</span><span class="p">,</span> <span class="n">u0</span><span class="p">,</span> <span class="n">tspan</span><span class="p">,</span> <span class="n">p</span><span class="p">);</span>
 <span class="n">sol</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">prob</span><span class="p">);</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">sol</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;fox&quot;</span> <span class="s">&quot;rabbit&quot;</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="n">legend</span><span class="o">=</span><span class="ss">:outertopright</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">sol</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;fox&quot;</span> <span class="s">&quot;rabbit&quot;</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="n">legend</span><span class="o">=:</span><span class="n">outertopright</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15296,17 +15296,17 @@ $$
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">sir!</span><span class="p">(</span><span class="n">du</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
-    <span class="n">β</span><span class="p">,</span> <span class="n">γ</span> <span class="o">=</span> <span class="n">p</span>
+    <span class="n">β</span><span class="p">,</span> <span class="nb">γ</span> <span class="o">=</span> <span class="n">p</span>
     <span class="n">du</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">β</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-    <span class="n">du</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">β</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">γ</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-    <span class="n">du</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">γ</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">du</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">β</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="nb">γ</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">du</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="nb">γ</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
 <span class="k">end</span><span class="p">;</span>
-<span class="n">u0</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.997</span><span class="p">,</span> <span class="mf">.003</span><span class="p">,</span> <span class="mf">.0</span><span class="p">];</span>
+<span class="n">u0</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.997</span><span class="p">,</span> <span class="o">.</span><span class="mi">003</span><span class="p">,</span> <span class="o">.</span><span class="mi">0</span><span class="p">];</span>
 <span class="n">tspan</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">100.</span><span class="p">);</span>
 <span class="n">p</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">];</span>
 <span class="n">prob</span> <span class="o">=</span> <span class="n">ODEProblem</span><span class="p">(</span><span class="n">sir!</span><span class="p">,</span> <span class="n">u0</span><span class="p">,</span> <span class="n">tspan</span><span class="p">,</span> <span class="n">p</span><span class="p">);</span>
 <span class="n">sol</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">prob</span><span class="p">);</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">sol</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;susceptible&quot;</span> <span class="s">&quot;infected&quot;</span> <span class="s">&quot;recovered&quot;</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="n">legend</span><span class="o">=</span><span class="ss">:outertopright</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">sol</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;susceptible&quot;</span> <span class="s">&quot;infected&quot;</span> <span class="s">&quot;recovered&quot;</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="n">legend</span><span class="o">=:</span><span class="n">outertopright</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15792,7 +15792,7 @@ $$
 <span class="n">p1</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">sol</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">&quot;effective capital&quot;</span><span class="p">);</span>
 <span class="n">p2</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">k</span> <span class="o">-&gt;</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">k</span><span class="o">^</span><span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span> <span class="mi">0</span><span class="o">:</span><span class="mf">0.05</span><span class="o">:</span><span class="mi">10</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">&quot;savings&quot;</span><span class="p">);</span>
 <span class="n">plot!</span><span class="p">(</span><span class="n">k</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="n">p</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">+</span> <span class="n">p</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span><span class="o">*</span><span class="n">k</span><span class="p">,</span> <span class="mi">0</span><span class="o">:</span><span class="mf">0.05</span><span class="o">:</span><span class="mi">10</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">&quot;depreciation&quot;</span><span class="p">);</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">l</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="ss">:bottomright</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">200</span><span class="p">))</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">l</span><span class="p">,</span> <span class="n">legend</span><span class="o">=:</span><span class="n">bottomright</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">200</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -16246,6 +16246,7 @@ $$
 u = u(t; u_0) \approx NN(t; u_0)
 $$<p>Most ODE problems do not have <strong>analytical solution</strong> and <strong>are naturally expressed in terms of rates of change</strong>.</p>
 <p>We build from previous knowledge, NN are only used to describe the <strong>unknown parts of our model</strong>.</p>
+<p>However, it is possible to approximate $u(t)$ directly with NN, see the <a href="https://mitmath.github.io/18337/lecture3/sciml.html">harmonic oscillator example from Chris Rackauckas</a>.</p>
 <p>“<em>...the well-known adage ‘a picture is worth a thousand words’ might well be ‘a model is worth a thousand datasets’</em>”<br/>
 Rackauckas 2020</p>
 
@@ -16447,7 +16448,7 @@ julia&gt; ]
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">import</span> <span class="n">Pkg</span>
-<span class="n">Pkg</span><span class="o">.</span><span class="n">DEFAULT_IO</span><span class="p">[]</span> <span class="o">=</span> <span class="nb">stdout</span> <span class="c"># only needed in Jupyter, before v1.6.2 comes out</span>
+<span class="n">Pkg</span><span class="o">.</span><span class="n">DEFAULT_IO</span><span class="p">[]</span> <span class="o">=</span> <span class="n">stdout</span> <span class="c"># only needed in Jupyter, before v1.6.2 comes out</span>
 <span class="n">Pkg</span><span class="o">.</span><span class="n">status</span><span class="p">()</span>
 </pre></div>
 
@@ -16536,7 +16537,7 @@ julia&gt; ]
 <span class="n">include</span><span class="p">(</span><span class="s">&quot;</span><span class="si">$</span><span class="p">(</span><span class="nd">@__DIR__</span><span class="p">)</span><span class="s">/example.jl&quot;</span><span class="p">)</span>
 
 <span class="c"># we can also define functions and constants in the declaration file, but this is less common</span>
-<span class="k">const</span> <span class="n">MyFirstConstant</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="kd">const</span> <span class="n">MyFirstConstant</span> <span class="o">=</span> <span class="mi">42</span>
 
 <span class="k">function</span> <span class="n">random_average</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
     <span class="n">mean</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
@@ -17030,7 +17031,7 @@ Stacktrace:
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="nb">undef</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c"># initialize a vector with 3 elements</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">undef</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c"># initialize a vector with 3 elements</span>
 <span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">b</span>
 </pre></div>
@@ -17282,7 +17283,7 @@ Stacktrace:
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="kt">Matrix</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="nb">undef</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="c"># another way to initialize a matrix</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="kt">Matrix</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">undef</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="c"># another way to initialize a matrix</span>
 </pre></div>
 
      </div>
@@ -17451,7 +17452,7 @@ Stacktrace:
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[30]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">v</span> <span class="o">=</span> <span class="kt">Vector</span><span class="p">{</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Any</span><span class="p">}}(</span><span class="nb">undef</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c"># we can also have array of arrays</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">v</span> <span class="o">=</span> <span class="kt">Vector</span><span class="p">{</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Any</span><span class="p">}}(</span><span class="n">undef</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c"># we can also have array of arrays</span>
 <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 <span class="n">v</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">5.</span><span class="p">,</span> <span class="mf">7.</span><span class="p">,</span> <span class="mf">9.</span><span class="p">]</span>
 <span class="n">v</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -18244,7 +18245,7 @@ Stacktrace:
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[48]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">MyFirstModule</span><span class="o">.</span><span class="n">hello</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="kt">Array</span><span class="p">)</span> <span class="o">=</span> <span class="n">join</span><span class="p">([</span><span class="n">MyFirstModule</span><span class="o">.</span><span class="n">hello</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="n">x</span><span class="p">],</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">MyFirstModule</span><span class="o">.</span><span class="n">hello</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="kt">Array</span><span class="p">)</span> <span class="o">=</span> <span class="n">join</span><span class="p">([</span><span class="n">MyFirstModule</span><span class="o">.</span><span class="n">hello</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="kp">in</span> <span class="n">x</span><span class="p">],</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
 <span class="n">println</span><span class="p">(</span><span class="n">MyFirstModule</span><span class="o">.</span><span class="n">hello</span><span class="p">([</span><span class="s">&quot;Clara&quot;</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="p">[</span><span class="s">&quot;John&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">]]))</span>
 </pre></div>
 
@@ -18375,7 +18376,7 @@ Hello, don&#39;t be fooled 20!
 <div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">modifyC0!</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
     <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="o">:</span><span class="p">]</span> <span class="o">.=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="o">:</span><span class="p">]</span> <span class="o">.*</span> <span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="o">:</span><span class="p">]</span>
 <span class="k">end</span>
-<span class="nd">@btime</span> <span class="n">modifyC0!</span><span class="p">(</span><span class="o">$</span><span class="n">A</span><span class="p">,</span> <span class="o">$</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="n">setup</span><span class="o">=</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="nb">undef</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">));</span>
+<span class="nd">@btime</span> <span class="n">modifyC0!</span><span class="p">(</span><span class="o">$</span><span class="n">A</span><span class="p">,</span> <span class="o">$</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="n">setup</span><span class="o">=</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">undef</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">));</span>
 </pre></div>
 
      </div>
@@ -18412,9 +18413,9 @@ Hello, don&#39;t be fooled 20!
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">modifyC1!</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>   
     <span class="c"># the macro @. denotes that all operations in the line are broadcast</span>
-    <span class="nd">@.</span> <span class="n">C</span><span class="p">[</span><span class="o">:</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="o">:</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">B</span><span class="p">[</span><span class="o">:</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span>
+    <span class="err">@</span><span class="o">.</span> <span class="n">C</span><span class="p">[</span><span class="o">:</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="o">:</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">B</span><span class="p">[</span><span class="o">:</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span>
 <span class="k">end</span>                                   
-<span class="nd">@btime</span> <span class="n">modifyC1!</span><span class="p">(</span><span class="o">$</span><span class="n">A</span><span class="p">,</span> <span class="o">$</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="n">setup</span><span class="o">=</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="nb">undef</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">));</span>
+<span class="nd">@btime</span> <span class="n">modifyC1!</span><span class="p">(</span><span class="o">$</span><span class="n">A</span><span class="p">,</span> <span class="o">$</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="n">setup</span><span class="o">=</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">undef</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">));</span>
 </pre></div>
 
      </div>
@@ -18464,9 +18465,9 @@ Hello, don&#39;t be fooled 20!
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="nd">@views</span> <span class="k">function</span> <span class="n">modifyC2!</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
     <span class="c"># the macro @. denotes that all operations in the line are broadcast</span>
-    <span class="nd">@.</span> <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="o">:</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="o">:</span><span class="p">]</span> <span class="o">*</span> <span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="o">:</span><span class="p">]</span>
+    <span class="err">@</span><span class="o">.</span> <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="o">:</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="o">:</span><span class="p">]</span> <span class="o">*</span> <span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="o">:</span><span class="p">]</span>
 <span class="k">end</span>
-<span class="nd">@btime</span> <span class="n">modifyC2!</span><span class="p">(</span><span class="o">$</span><span class="n">A</span><span class="p">,</span> <span class="o">$</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="n">setup</span><span class="o">=</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="nb">undef</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">));</span>
+<span class="nd">@btime</span> <span class="n">modifyC2!</span><span class="p">(</span><span class="o">$</span><span class="n">A</span><span class="p">,</span> <span class="o">$</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="n">setup</span><span class="o">=</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">undef</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">));</span>
 </pre></div>
 
      </div>
@@ -18504,7 +18505,7 @@ Hello, don&#39;t be fooled 20!
 <div class=" highlight hl-julia"><pre><span></span><span class="nd">@views</span> <span class="k">function</span> <span class="n">modifyC3!</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
     <span class="n">C</span><span class="p">[</span><span class="o">:</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">.=</span> <span class="n">A</span><span class="p">[</span><span class="o">:</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">.*</span> <span class="n">B</span><span class="p">[</span><span class="o">:</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span>
 <span class="k">end</span>
-<span class="nd">@btime</span> <span class="n">modifyC3!</span><span class="p">(</span><span class="o">$</span><span class="n">A</span><span class="p">,</span> <span class="o">$</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="n">setup</span><span class="o">=</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="nb">undef</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">));</span>
+<span class="nd">@btime</span> <span class="n">modifyC3!</span><span class="p">(</span><span class="o">$</span><span class="n">A</span><span class="p">,</span> <span class="o">$</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="n">setup</span><span class="o">=</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">undef</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">));</span>
 </pre></div>
 
      </div>
@@ -18601,11 +18602,11 @@ Hello, don&#39;t be fooled 20!
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">modifyC4!</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="k">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">size</span><span class="p">(</span><span class="n">C</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">size</span><span class="p">(</span><span class="n">C</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
         <span class="n">C</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">B</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span>
     <span class="k">end</span>
 <span class="k">end</span>
-<span class="nd">@btime</span> <span class="n">modifyC4!</span><span class="p">(</span><span class="o">$</span><span class="n">A</span><span class="p">,</span> <span class="o">$</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="n">setup</span><span class="o">=</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="nb">undef</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">));</span>
+<span class="nd">@btime</span> <span class="n">modifyC4!</span><span class="p">(</span><span class="o">$</span><span class="n">A</span><span class="p">,</span> <span class="o">$</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="n">setup</span><span class="o">=</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">undef</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">));</span>
 </pre></div>
 
      </div>
@@ -18655,11 +18656,11 @@ Hello, don&#39;t be fooled 20!
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">modifyC5!</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
-    <span class="nd">@inbounds</span> <span class="k">for</span> <span class="n">j</span> <span class="k">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">size</span><span class="p">(</span><span class="n">C</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="nd">@inbounds</span> <span class="k">for</span> <span class="n">j</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">size</span><span class="p">(</span><span class="n">C</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
         <span class="n">C</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">B</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span>
     <span class="k">end</span>
 <span class="k">end</span>
-<span class="nd">@btime</span> <span class="n">modifyC5!</span><span class="p">(</span><span class="o">$</span><span class="n">A</span><span class="p">,</span> <span class="o">$</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="n">setup</span><span class="o">=</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="nb">undef</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">));</span>
+<span class="nd">@btime</span> <span class="n">modifyC5!</span><span class="p">(</span><span class="o">$</span><span class="n">A</span><span class="p">,</span> <span class="o">$</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="n">setup</span><span class="o">=</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">undef</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">));</span>
 </pre></div>
 
      </div>
@@ -18704,7 +18705,7 @@ Hello, don&#39;t be fooled 20!
 <span class="nd">@views</span> <span class="k">function</span> <span class="n">modifyC6!</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
     <span class="nd">@turbo</span> <span class="n">C</span><span class="p">[</span><span class="o">:</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">.=</span> <span class="n">A</span><span class="p">[</span><span class="o">:</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">.*</span> <span class="n">B</span><span class="p">[</span><span class="o">:</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span>
 <span class="k">end</span>
-<span class="nd">@btime</span> <span class="n">modifyC6!</span><span class="p">(</span><span class="o">$</span><span class="n">A</span><span class="p">,</span> <span class="o">$</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="n">setup</span><span class="o">=</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="nb">undef</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">));</span>
+<span class="nd">@btime</span> <span class="n">modifyC6!</span><span class="p">(</span><span class="o">$</span><span class="n">A</span><span class="p">,</span> <span class="o">$</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="n">setup</span><span class="o">=</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">undef</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">));</span>
 </pre></div>
 
      </div>
@@ -18905,7 +18906,7 @@ Hello, don&#39;t be fooled 20!
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[64]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mf">.2</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="o">.</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -18997,7 +18998,7 @@ Stacktrace:
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[66]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="kt">Dict</span><span class="p">(</span><span class="ss">:d</span> <span class="o">=&gt;</span> <span class="s">&quot;blue&quot;</span><span class="p">,</span> <span class="mi">1</span> <span class="o">=&gt;</span> <span class="s">&quot;book&quot;</span><span class="p">,</span> <span class="s">&quot;ball&quot;</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="kt">Dict</span><span class="p">(</span><span class="o">:</span><span class="n">d</span> <span class="o">=&gt;</span> <span class="s">&quot;blue&quot;</span><span class="p">,</span> <span class="mi">1</span> <span class="o">=&gt;</span> <span class="s">&quot;book&quot;</span><span class="p">,</span> <span class="s">&quot;ball&quot;</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -19037,7 +19038,7 @@ Stacktrace:
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[67]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">d</span><span class="p">[</span><span class="ss">:d</span><span class="p">]</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">d</span><span class="p">[</span><span class="o">:</span><span class="n">d</span><span class="p">]</span>
 </pre></div>
 
      </div>
@@ -19122,7 +19123,7 @@ Stacktrace:
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[69]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">eval</span><span class="p">(</span><span class="ss">:d</span><span class="p">)</span> <span class="c"># remember that we defined d as a dictionary in the global scope</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">eval</span><span class="p">(</span><span class="o">:</span><span class="n">d</span><span class="p">)</span> <span class="c"># remember that we defined d as a dictionary in the global scope</span>
 </pre></div>
 
      </div>
@@ -19162,7 +19163,7 @@ Stacktrace:
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[70]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">d</span><span class="p">[</span><span class="ss">:d</span><span class="p">]</span> <span class="c"># within the dictionary d is a key</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">d</span><span class="p">[</span><span class="o">:</span><span class="n">d</span><span class="p">]</span> <span class="c"># within the dictionary d is a key</span>
 </pre></div>
 
      </div>
@@ -19369,7 +19370,7 @@ Stacktrace:
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[75]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">struct</span> <span class="kt">Point</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">struct</span> <span class="n">Point</span>
     <span class="n">x</span><span class="o">::</span><span class="kt">Float64</span>
     <span class="n">y</span><span class="o">::</span><span class="kt">Float64</span>
 <span class="k">end</span>
@@ -19467,7 +19468,7 @@ Stacktrace:
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[77]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">mutable struct</span> <span class="kt">MutablePoint</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">mutable</span> <span class="k">struct</span> <span class="n">MutablePoint</span>
     <span class="n">x</span><span class="o">::</span><span class="kt">Float64</span>
     <span class="n">y</span><span class="o">::</span><span class="kt">Float64</span>
 <span class="k">end</span>
@@ -19559,7 +19560,7 @@ Stacktrace:
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[79]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">abstract type</span> <span class="kt">AbstractShape</span> <span class="k">end</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">abstract</span> <span class="k">type</span> <span class="n">AbstractShape</span> <span class="k">end</span>
 </pre></div>
 
      </div>
@@ -19573,7 +19574,7 @@ Stacktrace:
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[80]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">struct</span> <span class="kt">Square</span> <span class="o">&lt;:</span> <span class="kt">AbstractShape</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">struct</span> <span class="n">Square</span> <span class="o">&lt;:</span> <span class="n">AbstractShape</span>
     <span class="n">x</span><span class="o">::</span><span class="kt">Float64</span>
     <span class="n">y</span><span class="o">::</span><span class="kt">Float64</span>
     <span class="n">length</span><span class="o">::</span><span class="kt">Float64</span>
@@ -19621,13 +19622,13 @@ Stacktrace:
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[81]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">struct</span> <span class="kt">Rectangle</span><span class="p">{</span><span class="kt">T</span><span class="o">&lt;:</span><span class="kt">Number</span><span class="p">}</span> <span class="o">&lt;:</span> <span class="kt">AbstractShape</span>
-    <span class="n">x</span><span class="o">::</span><span class="kt">T</span>
-    <span class="n">y</span><span class="o">::</span><span class="kt">T</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">struct</span> <span class="n">Rectangle</span><span class="p">{</span><span class="n">T</span><span class="o">&lt;:</span><span class="kt">Number</span><span class="p">}</span> <span class="o">&lt;:</span> <span class="n">AbstractShape</span>
+    <span class="n">x</span><span class="o">::</span><span class="n">T</span>
+    <span class="n">y</span><span class="o">::</span><span class="n">T</span>
     <span class="n">length</span><span class="o">::</span><span class="kt">Float64</span>
     <span class="n">height</span><span class="o">::</span><span class="kt">Float64</span>
 <span class="k">end</span>
-<span class="kt">Rectangle</span><span class="p">{</span><span class="kt">Int64</span><span class="p">}(</span><span class="mf">5.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">)</span>
+<span class="n">Rectangle</span><span class="p">{</span><span class="kt">Int64</span><span class="p">}(</span><span class="mf">5.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -19670,7 +19671,7 @@ Stacktrace:
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[82]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">Base</span><span class="o">.:+</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="kt">Point</span><span class="p">,</span> <span class="n">b</span><span class="o">::</span><span class="kt">Point</span><span class="p">)</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">b</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">b</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">Base</span><span class="o">.:+</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">Point</span><span class="p">,</span> <span class="n">b</span><span class="o">::</span><span class="n">Point</span><span class="p">)</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">b</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">b</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
 <span class="n">Point</span><span class="p">(</span><span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">)</span> <span class="o">+</span> <span class="n">Point</span><span class="p">(</span><span class="mf">4.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">)</span>
 </pre></div>
 
@@ -19910,9 +19911,9 @@ $$<p>The first step is to define the function in Julia.</p>
 <span class="s">This function produces side-effects by modifying `du`.</span>
 <span class="s">&quot;&quot;&quot;</span>
 <span class="k">function</span> <span class="n">lv!</span><span class="p">(</span><span class="n">du</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
-    <span class="n">α</span><span class="p">,</span> <span class="n">β</span><span class="p">,</span> <span class="n">δ</span><span class="p">,</span> <span class="n">γ</span> <span class="o">=</span> <span class="n">p</span>
+    <span class="n">α</span><span class="p">,</span> <span class="n">β</span><span class="p">,</span> <span class="n">δ</span><span class="p">,</span> <span class="nb">γ</span> <span class="o">=</span> <span class="n">p</span>
     <span class="n">du</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">α</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">β</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-    <span class="n">du</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">δ</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">γ</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">du</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">δ</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="nb">γ</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
 <span class="k">end</span><span class="p">;</span>
 </pre></div>
 
@@ -21413,7 +21414,7 @@ $$
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">plot</span><span class="p">(</span><span class="n">lv_sol</span><span class="p">,</span> <span class="n">vars</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="nb">nothing</span><span class="p">)</span>
-<span class="n">plot!</span><span class="p">(</span><span class="n">xlims</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">.5</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="n">ylims</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">.5</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">))</span> <span class="c"># adjust axis for better viz</span>
+<span class="n">plot!</span><span class="p">(</span><span class="n">xlims</span><span class="o">=</span><span class="p">(</span><span class="o">-.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="n">ylims</span><span class="o">=</span><span class="p">(</span><span class="o">-.</span><span class="mi">5</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">))</span> <span class="c"># adjust axis for better viz</span>
 </pre></div>
 
      </div>
@@ -22294,12 +22295,12 @@ M96.1772 677.168 L752.756 677.168 L752.756 47.2441 L96.1772 47.2441  Z
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">plot</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span> <span class="c"># initialize an empty plot</span>
-<span class="k">for</span> <span class="n">u0</span> <span class="k">in</span> <span class="p">[[</span><span class="n">lv_p</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">/</span><span class="n">lv_p</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">lv_p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">lv_p</span><span class="p">[</span><span class="mi">2</span><span class="p">]],</span> <span class="p">[</span><span class="mf">.5</span><span class="p">,</span> <span class="mf">.5</span><span class="p">],</span> <span class="p">[</span><span class="mf">2.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">],</span> <span class="p">[</span><span class="mf">5.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">],</span> <span class="p">[</span><span class="mf">7.</span><span class="p">,</span> <span class="mf">7.</span><span class="p">],</span> <span class="p">[</span><span class="mf">10.</span><span class="p">,</span> <span class="mf">10.</span><span class="p">],</span> <span class="p">[</span><span class="mf">12.</span><span class="p">,</span> <span class="mf">12.</span><span class="p">]]</span>
+<span class="k">for</span> <span class="n">u0</span> <span class="kp">in</span> <span class="p">[[</span><span class="n">lv_p</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">/</span><span class="n">lv_p</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">lv_p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">lv_p</span><span class="p">[</span><span class="mi">2</span><span class="p">]],</span> <span class="p">[</span><span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mf">2.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">],</span> <span class="p">[</span><span class="mf">5.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">],</span> <span class="p">[</span><span class="mf">7.</span><span class="p">,</span> <span class="mf">7.</span><span class="p">],</span> <span class="p">[</span><span class="mf">10.</span><span class="p">,</span> <span class="mf">10.</span><span class="p">],</span> <span class="p">[</span><span class="mf">12.</span><span class="p">,</span> <span class="mf">12.</span><span class="p">]]</span>
     <span class="n">new_prob</span> <span class="o">=</span> <span class="n">remake</span><span class="p">(</span><span class="n">lv_prob</span><span class="p">,</span> <span class="n">u0</span><span class="o">=</span><span class="n">u0</span><span class="p">)</span> <span class="c"># remake the problem, with new initial condition</span>
     <span class="n">new_sol</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">new_prob</span><span class="p">)</span> <span class="c"># find new solution</span>
     <span class="n">scatter!</span><span class="p">(</span><span class="n">new_sol</span><span class="p">,</span> <span class="n">vars</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s">&quot;x₀ = </span><span class="si">$</span><span class="p">(</span><span class="n">u0</span><span class="p">)</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">msw</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c"># plot the new solution</span>
 <span class="k">end</span>
-<span class="n">plot!</span><span class="p">(</span><span class="n">xlims</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="n">ylims</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="n">legend</span><span class="o">=</span><span class="ss">:outertopright</span><span class="p">)</span>
+<span class="n">plot!</span><span class="p">(</span><span class="n">xlims</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="n">ylims</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="n">legend</span><span class="o">=:</span><span class="n">outertopright</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -29732,7 +29733,7 @@ M1005.06 552.946 L1552.76 552.946 L1552.76 69.1056 L1005.06 69.1056  Z
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">complete_sol</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">lv_prob</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">fitted_p</span><span class="p">,</span> <span class="n">tspan</span><span class="o">=</span><span class="n">tspan</span><span class="p">,</span> <span class="n">saveat</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="mi">50</span><span class="p">)</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">lv_sol</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mi">600</span><span class="p">,</span> <span class="mi">200</span><span class="p">],</span> <span class="n">legend</span><span class="o">=</span><span class="ss">:outertopright</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">lv_sol</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mi">600</span><span class="p">,</span> <span class="mi">200</span><span class="p">],</span> <span class="n">legend</span><span class="o">=:</span><span class="n">outertopright</span><span class="p">)</span>
 <span class="n">scatter!</span><span class="p">(</span><span class="n">complete_sol</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span> <span class="mi">2</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;u1(t) fitted&quot;</span> <span class="s">&quot;u2(t) fitted&quot;</span><span class="p">])</span>
 </pre></div>
 
@@ -31469,10 +31470,10 @@ M130.959 703.088 L1552.76 703.088 L1552.76 47.2441 L130.959 47.2441  Z
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">callback</span><span class="p">(</span><span class="n">true_sol</span><span class="p">,</span> <span class="n">obs</span><span class="p">,</span> <span class="n">prob</span><span class="p">,</span> <span class="n">tsteps</span><span class="p">,</span> <span class="n">losses</span><span class="p">,</span> <span class="n">logevery</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
     <span class="n">ct</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">return</span> <span class="k">function</span> <span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="nb">nothing</span><span class="p">;</span> <span class="n">doplot</span><span class="o">=</span><span class="nb">false</span><span class="p">)</span> 
+    <span class="k">return</span> <span class="k">function</span> <span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="nb">nothing</span><span class="p">;</span> <span class="n">doplot</span><span class="o">=</span><span class="kc">false</span><span class="p">)</span> 
     <span class="k">if</span> <span class="n">doplot</span>
         <span class="n">plt</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">true_sol</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;u1(t)&quot;</span> <span class="s">&quot;u2(t)&quot;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span> <span class="mi">2</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mi">600</span><span class="p">,</span> <span class="mi">200</span><span class="p">],</span> 
-            <span class="n">legend</span><span class="o">=</span><span class="ss">:outertopright</span><span class="p">)</span>
+            <span class="n">legend</span><span class="o">=:</span><span class="n">outertopright</span><span class="p">)</span>
         <span class="n">scatter!</span><span class="p">(</span><span class="n">plt</span><span class="p">,</span> <span class="n">tsteps</span><span class="p">,</span> <span class="n">obs</span><span class="o">&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span> <span class="mi">2</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="nb">nothing</span><span class="p">)</span>
         <span class="n">fitted_sol</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">prob</span><span class="p">,</span> <span class="n">Tsit5</span><span class="p">(),</span> <span class="n">u0</span><span class="o">=</span><span class="n">u0</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">saveat</span><span class="o">=</span><span class="n">tsteps</span><span class="p">)</span>
         <span class="n">plot!</span><span class="p">(</span><span class="n">plt</span><span class="p">,</span> <span class="n">fitted_sol</span><span class="p">(</span><span class="n">true_sol</span><span class="o">.</span><span class="n">t</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;u1(t) fitted&quot;</span> <span class="s">&quot;u2(t) fitted&quot;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span> <span class="mi">4</span><span class="p">])</span>
@@ -31485,7 +31486,7 @@ M130.959 703.088 L1552.76 703.088 L1552.76 47.2441 L130.959 47.2441  Z
             <span class="nd">@info</span> <span class="s">&quot;iter </span><span class="si">$</span><span class="p">(</span><span class="n">ct</span><span class="p">)</span><span class="s">, loss </span><span class="si">$</span><span class="p">(</span><span class="n">losses</span><span class="p">[</span><span class="k">end</span><span class="p">])</span><span class="s">&quot;</span>
         <span class="k">end</span>
     <span class="k">end</span>
-    <span class="k">return</span> <span class="nb">false</span>
+    <span class="k">return</span> <span class="kc">false</span>
     <span class="k">end</span>
 <span class="k">end</span><span class="p">;</span>
 </pre></div>
@@ -31510,7 +31511,7 @@ M130.959 703.088 L1552.76 703.088 L1552.76 47.2441 L130.959 47.2441  Z
 <div class=" highlight hl-julia"><pre><span></span><span class="n">nn_losses</span> <span class="o">=</span> <span class="kt">Vector</span><span class="p">{</span><span class="kt">Float32</span><span class="p">}()</span>
 <span class="n">nn_cb</span> <span class="o">=</span> <span class="n">callback</span><span class="p">(</span><span class="n">lv_short_sol</span><span class="p">,</span> <span class="n">obs</span><span class="p">,</span> <span class="n">nn_prob</span><span class="p">,</span> <span class="n">obs_steps</span><span class="p">,</span> <span class="n">nn_losses</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 <span class="n">nn_init_p</span> <span class="o">=</span> <span class="n">initial_params</span><span class="p">(</span><span class="n">nn</span><span class="p">)</span>
-<span class="n">nn_cb</span><span class="p">(</span><span class="n">nn_init_p</span><span class="p">;</span> <span class="n">doplot</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
+<span class="n">nn_cb</span><span class="p">(</span><span class="n">nn_init_p</span><span class="p">;</span> <span class="n">doplot</span><span class="o">=</span><span class="kc">true</span><span class="p">);</span>
 </pre></div>
 
      </div>
@@ -31865,7 +31866,7 @@ M1857.96 371.794 L2352.76 371.794 L2352.76 69.3936 L1857.96 69.3936  Z
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">nn_predict</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-    <span class="n">sensealg</span> <span class="o">=</span> <span class="n">InterpolatingAdjoint</span><span class="p">(</span><span class="n">autojacvec</span><span class="o">=</span><span class="n">ReverseDiffVJP</span><span class="p">(</span><span class="nb">true</span><span class="p">))</span>
+    <span class="n">sensealg</span> <span class="o">=</span> <span class="n">InterpolatingAdjoint</span><span class="p">(</span><span class="n">autojacvec</span><span class="o">=</span><span class="n">ReverseDiffVJP</span><span class="p">(</span><span class="kc">true</span><span class="p">))</span>
     <span class="kt">Array</span><span class="p">(</span><span class="n">solve</span><span class="p">(</span><span class="n">nn_prob</span><span class="p">,</span> <span class="n">Tsit5</span><span class="p">(),</span> <span class="n">u0</span><span class="o">=</span><span class="n">u0</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">saveat</span><span class="o">=</span><span class="n">obs_steps</span><span class="p">,</span> 
         <span class="n">abstol</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">reltol</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">sensealg</span><span class="o">=</span><span class="n">sensealg</span><span class="p">))</span>
 <span class="k">end</span>
@@ -32162,7 +32163,7 @@ M1271.56 190.066 L1507.43 190.066 L1507.43 69.1056 L1271.56 69.1056  Z
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[157]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">nn_cb</span><span class="p">(</span><span class="n">nn_fitted_p</span><span class="p">;</span> <span class="n">doplot</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">nn_cb</span><span class="p">(</span><span class="n">nn_fitted_p</span><span class="p">;</span> <span class="n">doplot</span><span class="o">=</span><span class="kc">true</span><span class="p">);</span>
 </pre></div>
 
      </div>
@@ -32479,7 +32480,7 @@ M1857.96 371.794 L2352.76 371.794 L2352.76 69.3936 L1857.96 69.3936  Z
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">nn_complete_sol</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">nn_prob</span><span class="p">,</span> <span class="n">u0</span><span class="o">=</span><span class="n">u0</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">nn_fitted_p</span><span class="p">,</span> <span class="n">tspan</span><span class="o">=</span><span class="n">tspan</span><span class="p">,</span> <span class="n">saveat</span><span class="o">=</span><span class="n">lv_sol</span><span class="o">.</span><span class="n">t</span><span class="p">);</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">lv_sol</span><span class="p">,</span> <span class="n">vars</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s">&quot;u1(t) true&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mi">600</span><span class="p">,</span> <span class="mi">200</span><span class="p">],</span> <span class="n">legend</span><span class="o">=</span><span class="ss">:outertopright</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">lv_sol</span><span class="p">,</span> <span class="n">vars</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s">&quot;u1(t) true&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mi">600</span><span class="p">,</span> <span class="mi">200</span><span class="p">],</span> <span class="n">legend</span><span class="o">=:</span><span class="n">outertopright</span><span class="p">)</span>
 <span class="n">plot!</span><span class="p">(</span><span class="n">nn_complete_sol</span><span class="p">,</span> <span class="n">vars</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s">&quot;u1(t) fitted&quot;</span><span class="p">)</span>
 </pre></div>
 
@@ -33343,7 +33344,7 @@ $$<p>This approach, <strong>denoted UDE</strong>, was introduced in <strong>Rack
 <div class=" highlight hl-julia"><pre><span></span><span class="n">ude_losses</span> <span class="o">=</span> <span class="kt">Vector</span><span class="p">{</span><span class="kt">Float32</span><span class="p">}()</span>
 <span class="n">ude_cb</span> <span class="o">=</span> <span class="n">callback</span><span class="p">(</span><span class="n">lv_short_sol</span><span class="p">,</span> <span class="n">obs</span><span class="p">,</span> <span class="n">ude_prob</span><span class="p">,</span> <span class="n">obs_steps</span><span class="p">,</span> <span class="n">ude_losses</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
 <span class="n">ude_init_p</span> <span class="o">=</span> <span class="n">initial_params</span><span class="p">(</span><span class="n">ude_nn</span><span class="p">)</span>
-<span class="n">ude_cb</span><span class="p">(</span><span class="n">ude_init_p</span><span class="p">;</span> <span class="n">doplot</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
+<span class="n">ude_cb</span><span class="p">(</span><span class="n">ude_init_p</span><span class="p">;</span> <span class="n">doplot</span><span class="o">=</span><span class="kc">true</span><span class="p">);</span>
 </pre></div>
 
      </div>
@@ -33791,7 +33792,7 @@ M1873.35 371.794 L2352.76 371.794 L2352.76 69.3936 L1873.35 69.3936  Z
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[170]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">ude_cb</span><span class="p">(</span><span class="n">ude_fitted_p</span><span class="p">;</span> <span class="n">doplot</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">ude_cb</span><span class="p">(</span><span class="n">ude_fitted_p</span><span class="p">;</span> <span class="n">doplot</span><span class="o">=</span><span class="kc">true</span><span class="p">);</span>
 </pre></div>
 
      </div>
@@ -34110,7 +34111,7 @@ M1857.96 371.794 L2352.76 371.794 L2352.76 69.3936 L1857.96 69.3936  Z
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">ude_complete_sol</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">ude_prob</span><span class="p">,</span> <span class="n">u0</span><span class="o">=</span><span class="n">u0</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">ude_fitted_p</span><span class="p">,</span> <span class="n">tspan</span><span class="o">=</span><span class="n">tspan</span><span class="p">,</span> <span class="n">saveat</span><span class="o">=</span><span class="n">lv_sol</span><span class="o">.</span><span class="n">t</span><span class="p">);</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">lv_sol</span><span class="p">,</span> <span class="n">vars</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s">&quot;u1(t) true&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mi">600</span><span class="p">,</span> <span class="mi">200</span><span class="p">],</span> <span class="n">legend</span><span class="o">=</span><span class="ss">:outertopright</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">lv_sol</span><span class="p">,</span> <span class="n">vars</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s">&quot;u1(t) true&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">[</span><span class="mi">600</span><span class="p">,</span> <span class="mi">200</span><span class="p">],</span> <span class="n">legend</span><span class="o">=:</span><span class="n">outertopright</span><span class="p">)</span>
 <span class="n">plot!</span><span class="p">(</span><span class="n">ude_complete_sol</span><span class="p">,</span> <span class="n">vars</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s">&quot;u1(t) fitted&quot;</span><span class="p">)</span>
 </pre></div>
 
@@ -35090,7 +35091,7 @@ Equations
 <span class="n">interaction_pred</span> <span class="o">=</span> <span class="n">ude_nn</span><span class="p">(</span><span class="n">obs_pred</span><span class="p">,</span> <span class="n">ude_fitted_p</span><span class="p">)</span>
 <span class="n">plot</span><span class="p">(</span><span class="n">obs_steps</span><span class="p">,</span> <span class="n">interaction_pred</span><span class="o">&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;u1(t) true interaction&quot;</span> <span class="s">&quot;u2(t) true interaction&quot;</span><span class="p">])</span>
 <span class="n">plot!</span><span class="p">(</span><span class="n">obs_steps</span><span class="p">,</span> <span class="n">interaction_true</span><span class="o">&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;u1(t) predicted interaction&quot;</span> <span class="s">&quot;u2(t) predicted interaction&quot;</span><span class="p">])</span>
-<span class="n">plot!</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="n">legend</span><span class="o">=</span><span class="ss">:outertopright</span><span class="p">)</span>
+<span class="n">plot!</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="n">legend</span><span class="o">=:</span><span class="n">outertopright</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -35276,7 +35277,7 @@ M1492.07 371.794 L2352.76 371.794 L2352.76 69.3936 L1492.07 69.3936  Z
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[175]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">plot</span><span class="p">(</span><span class="n">obs_steps</span><span class="p">,</span> <span class="n">norm</span><span class="o">.</span><span class="p">(</span><span class="n">eachcol</span><span class="p">(</span><span class="n">interaction_pred</span><span class="o">-</span><span class="n">interaction_true</span><span class="p">)),</span> <span class="n">yaxis</span><span class="o">=</span><span class="ss">:log</span><span class="p">,</span> 
+<div class=" highlight hl-julia"><pre><span></span><span class="n">plot</span><span class="p">(</span><span class="n">obs_steps</span><span class="p">,</span> <span class="n">norm</span><span class="o">.</span><span class="p">(</span><span class="n">eachcol</span><span class="p">(</span><span class="n">interaction_pred</span><span class="o">-</span><span class="n">interaction_true</span><span class="p">)),</span> <span class="n">yaxis</span><span class="o">=:</span><span class="n">log</span><span class="p">,</span> 
     <span class="n">label</span><span class="o">=</span><span class="s">&quot;prediction error&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">200</span><span class="p">))</span>
 </pre></div>
 
@@ -35443,7 +35444,7 @@ M996.559 190.066 L1508.26 190.066 L1508.26 69.1056 L996.559 69.1056  Z
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">true_sindy_problem</span> <span class="o">=</span> <span class="n">ContinuousDataDrivenProblem</span><span class="p">(</span><span class="n">obs_pred</span><span class="p">,</span> <span class="n">obs_steps</span><span class="p">,</span> <span class="n">DX</span><span class="o">=</span><span class="n">interaction_true</span><span class="p">);</span>
 <span class="n">true_sindy_sol</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">true_sindy_problem</span><span class="p">,</span> <span class="n">basis</span><span class="p">,</span> <span class="n">sindy_opt</span><span class="p">)</span>
-<span class="n">print</span><span class="p">(</span><span class="n">true_sindy_sol</span><span class="p">,</span> <span class="kt">Val</span><span class="p">{</span><span class="kt">true</span><span class="p">})</span>
+<span class="n">print</span><span class="p">(</span><span class="n">true_sindy_sol</span><span class="p">,</span> <span class="kt">Val</span><span class="p">{</span><span class="kc">true</span><span class="p">})</span>
 </pre></div>
 
      </div>
@@ -35503,7 +35504,7 @@ Parameters:
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">pred_sindy_problem</span> <span class="o">=</span> <span class="n">ContinuousDataDrivenProblem</span><span class="p">(</span><span class="n">obs_pred</span><span class="p">,</span> <span class="n">obs_steps</span><span class="p">,</span> <span class="n">DX</span><span class="o">=</span><span class="n">interaction_pred</span><span class="p">);</span>
 <span class="n">pred_sindy_sol</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">pred_sindy_problem</span><span class="p">,</span> <span class="n">basis</span><span class="p">,</span> <span class="n">sindy_opt</span><span class="p">);</span>
-<span class="n">print</span><span class="p">(</span><span class="n">pred_sindy_sol</span><span class="p">,</span> <span class="kt">Val</span><span class="p">{</span><span class="kt">true</span><span class="p">})</span>
+<span class="n">print</span><span class="p">(</span><span class="n">pred_sindy_sol</span><span class="p">,</span> <span class="kt">Val</span><span class="p">{</span><span class="kc">true</span><span class="p">})</span>
 </pre></div>
 
      </div>
@@ -35575,7 +35576,7 @@ Parameters:
 <span class="n">sparse_ude_prob</span> <span class="o">=</span> <span class="n">ODEProblem</span><span class="p">(</span><span class="n">sparse_ude!</span><span class="p">,</span> <span class="n">u0</span><span class="p">,</span> <span class="n">tspan</span><span class="p">)</span>
 <span class="n">sparse_ude_sol</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">sparse_ude_prob</span><span class="p">,</span> <span class="n">Tsit5</span><span class="p">(),</span> <span class="n">p</span><span class="o">=</span><span class="n">parameters</span><span class="p">(</span><span class="n">pred_sindy_sol</span><span class="p">),</span> <span class="n">saveat</span><span class="o">=</span><span class="n">lv_sol</span><span class="o">.</span><span class="n">t</span><span class="p">)</span>
 <span class="n">plot</span><span class="p">(</span><span class="n">lv_sol</span><span class="p">,</span> <span class="n">vars</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-<span class="n">plot!</span><span class="p">(</span><span class="n">sparse_ude_sol</span><span class="p">,</span> <span class="n">vars</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s">&quot;u1(t) fitted&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="n">legend</span><span class="o">=</span><span class="ss">:outertopright</span><span class="p">)</span>
+<span class="n">plot!</span><span class="p">(</span><span class="n">sparse_ude_sol</span><span class="p">,</span> <span class="n">vars</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s">&quot;u1(t) fitted&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="n">legend</span><span class="o">=:</span><span class="n">outertopright</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -36357,8 +36358,8 @@ M1857.96 249.517 L2352.76 249.517 L2352.76 68.0766 L1857.96 68.0766  Z
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[180]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">dlv</span> <span class="o">=</span> <span class="kt">Matrix</span><span class="p">{</span><span class="kt">Float32</span><span class="p">}(</span><span class="nb">undef</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="p">(</span><span class="n">obs</span><span class="p">)[</span><span class="mi">2</span><span class="p">])</span>
-<span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">du</span><span class="p">)</span> <span class="k">in</span> <span class="n">enumerate</span><span class="p">(</span><span class="n">eachcol</span><span class="p">(</span><span class="n">dlv</span><span class="p">))</span> <span class="n">lv!</span><span class="p">(</span><span class="n">du</span><span class="p">,</span> <span class="n">obs</span><span class="p">[</span><span class="o">:</span><span class="p">,</span> <span class="n">i</span><span class="p">],</span> <span class="n">lv_p</span><span class="p">,</span> <span class="nb">nothing</span><span class="p">)</span> <span class="k">end</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">dlv</span> <span class="o">=</span> <span class="kt">Matrix</span><span class="p">{</span><span class="kt">Float32</span><span class="p">}(</span><span class="n">undef</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="p">(</span><span class="n">obs</span><span class="p">)[</span><span class="mi">2</span><span class="p">])</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">du</span><span class="p">)</span> <span class="kp">in</span> <span class="n">enumerate</span><span class="p">(</span><span class="n">eachcol</span><span class="p">(</span><span class="n">dlv</span><span class="p">))</span> <span class="n">lv!</span><span class="p">(</span><span class="n">du</span><span class="p">,</span> <span class="n">obs</span><span class="p">[</span><span class="o">:</span><span class="p">,</span> <span class="n">i</span><span class="p">],</span> <span class="n">lv_p</span><span class="p">,</span> <span class="nb">nothing</span><span class="p">)</span> <span class="k">end</span>
 </pre></div>
 
      </div>
@@ -36380,7 +36381,7 @@ M1857.96 249.517 L2352.76 249.517 L2352.76 68.0766 L1857.96 68.0766  Z
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">true_sindy_problem</span> <span class="o">=</span> <span class="n">ContinuousDataDrivenProblem</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span> <span class="n">obs_steps</span><span class="p">,</span> <span class="n">DX</span><span class="o">=</span><span class="n">dlv</span><span class="p">);</span>
 <span class="n">true_sindy_sol</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">true_sindy_problem</span><span class="p">,</span> <span class="n">basis</span><span class="p">,</span> <span class="n">sindy_opt</span><span class="p">)</span>
-<span class="n">print</span><span class="p">(</span><span class="n">true_sindy_sol</span><span class="p">,</span> <span class="kt">Val</span><span class="p">{</span><span class="kt">true</span><span class="p">})</span>
+<span class="n">print</span><span class="p">(</span><span class="n">true_sindy_sol</span><span class="p">,</span> <span class="kt">Val</span><span class="p">{</span><span class="kc">true</span><span class="p">})</span>
 </pre></div>
 
      </div>
@@ -36442,7 +36443,7 @@ Parameters:
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">nn_pred</span> <span class="o">=</span> <span class="n">nn</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span> <span class="n">nn_fitted_p</span><span class="p">)</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">obs_steps</span><span class="p">,</span> <span class="n">norm</span><span class="o">.</span><span class="p">(</span><span class="n">eachcol</span><span class="p">(</span><span class="n">nn_pred</span><span class="o">-</span><span class="n">dlv</span><span class="p">)),</span> <span class="n">yaxis</span><span class="o">=</span><span class="ss">:log</span><span class="p">,</span> 
+<span class="n">plot</span><span class="p">(</span><span class="n">obs_steps</span><span class="p">,</span> <span class="n">norm</span><span class="o">.</span><span class="p">(</span><span class="n">eachcol</span><span class="p">(</span><span class="n">nn_pred</span><span class="o">-</span><span class="n">dlv</span><span class="p">)),</span> <span class="n">yaxis</span><span class="o">=:</span><span class="n">log</span><span class="p">,</span> 
     <span class="n">label</span><span class="o">=</span><span class="s">&quot;prediction error&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">200</span><span class="p">))</span>
 </pre></div>
 
@@ -36586,7 +36587,7 @@ M996.559 190.066 L1508.26 190.066 L1508.26 69.1056 L996.559 69.1056  Z
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">nn_sindy_problem</span> <span class="o">=</span> <span class="n">ContinuousDataDrivenProblem</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span> <span class="n">obs_steps</span><span class="p">,</span> <span class="n">DX</span><span class="o">=</span><span class="n">nn_pred</span><span class="p">);</span>
 <span class="n">nn_sindy_sol</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">nn_sindy_problem</span><span class="p">,</span> <span class="n">basis</span><span class="p">,</span> <span class="n">sindy_opt</span><span class="p">)</span>
-<span class="n">print</span><span class="p">(</span><span class="n">nn_sindy_sol</span><span class="p">,</span> <span class="kt">Val</span><span class="p">{</span><span class="kt">true</span><span class="p">});</span>
+<span class="n">print</span><span class="p">(</span><span class="n">nn_sindy_sol</span><span class="p">,</span> <span class="kt">Val</span><span class="p">{</span><span class="kc">true</span><span class="p">});</span>
 </pre></div>
 
      </div>
@@ -36653,7 +36654,7 @@ Parameters:
 <span class="n">sparse_nn_prob</span> <span class="o">=</span> <span class="n">ODEProblem</span><span class="p">(</span><span class="n">sparse_nn!</span><span class="p">,</span> <span class="n">u0</span><span class="p">,</span> <span class="n">tspan</span><span class="p">)</span>
 <span class="n">sparse_nn_sol</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">sparse_nn_prob</span><span class="p">,</span> <span class="n">Tsit5</span><span class="p">(),</span> <span class="n">p</span><span class="o">=</span><span class="n">parameters</span><span class="p">(</span><span class="n">nn_sindy_sol</span><span class="p">),</span> <span class="n">saveat</span><span class="o">=</span><span class="n">lv_sol</span><span class="o">.</span><span class="n">t</span><span class="p">)</span>
 <span class="n">plot</span><span class="p">(</span><span class="n">lv_sol</span><span class="p">,</span> <span class="n">vars</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-<span class="n">plot!</span><span class="p">(</span><span class="n">sparse_nn_sol</span><span class="p">,</span> <span class="n">vars</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s">&quot;u1(t) fitted&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="n">legend</span><span class="o">=</span><span class="ss">:outertopright</span><span class="p">)</span>
+<span class="n">plot!</span><span class="p">(</span><span class="n">sparse_nn_sol</span><span class="p">,</span> <span class="n">vars</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s">&quot;u1(t) fitted&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="n">legend</span><span class="o">=:</span><span class="n">outertopright</span><span class="p">)</span>
 </pre></div>
 
      </div>
