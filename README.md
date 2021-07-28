@@ -10,6 +10,8 @@ For a detailed description of the course read the [outline](./docs/outline.pdf).
 
 The slides are available in an interactive format as an [IJulia notebook](./docs/presentation.ipynb). The slides are also available in [html](./docs/presentation.slides.html).
 
+## Installation
+
 To follow the course, make sure to install the latest stable version of [`Julia`](https://julialang.org/downloads/). 
 
 Then, clone this repository:
@@ -32,13 +34,23 @@ After downloading the repository, activate the Julia environment and install all
  _/ |\__'_|_|_|\__'_|  |  Official https://julialang.org/ release
 |__/                   |
 
-julia> ]
+julia> ] # when you press this key, you will notice that your terminal changes to package mode
 (@v1.6) pkg> activate .
   Activating environment at `./phdteachphd-sciml/Project.toml`
 (@v1.6) pkg> instantiate
   Resolving package versions...
   ...
 ```
+
+After package installation, you can follow the workshop with the accompanying notebook. First, start Jupyter from Julia:
+
+```
+julia> using IJulia
+julia> notebook(dir=pwd())
+```
+
+The last command will open the Jupyter interface in your browser. You can find the accompanying notebook at `./docs/presentation.ipynb`.
+
 
 
 
